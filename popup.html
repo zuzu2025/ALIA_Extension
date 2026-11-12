@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alia</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Adaptive Load Intelligent Agent</p>
+          <h1>Alia</h1>
+        </div>
+        <span class="status-dot" title="Local-only monitoring"></span>
+      </header>
+
+      <button id="open-side-panel" class="panel-button" type="button">Open docked view</button>
+
+      <section class="metrics" aria-label="Tab status">
+        <div class="metric"><strong id="open-count">-</strong><span>Open</span></div>
+        <div class="metric amber"><strong id="dimmed-count">-</strong><span>Dimmed</span></div>
+        <div class="metric violet"><strong id="suspended-count">-</strong><span>Suspended</span></div>
+        <div class="metric teal"><strong id="memory-count">-</strong><span>Estimated MB freed</span></div>
+      </section>
+
+      <section class="sensitivity" aria-labelledby="sensitive-heading">
+        <div class="section-heading">
+          <div>
+            <p class="label">Current site</p>
+            <h2 id="current-domain">No eligible page</h2>
+          </div>
+          <label class="switch" title="Treat this domain as sensitive">
+            <input id="sensitive-toggle" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p id="sensitive-note">Sensitive sites are replaced with a neutral secure placeholder when suspended.</p>
+      </section>
+
+      <section aria-labelledby="tabs-heading">
+        <div class="section-heading compact">
+          <div><p class="label">Tab strip</p><h2 id="tabs-heading">Idle state</h2></div>
+          <button id="refresh" class="icon-button" type="button" title="Refresh dashboard" aria-label="Refresh dashboard">&#8635;</button>
+        </div>
+        <div id="tab-list" class="tab-list" aria-live="polite"></div>
+      </section>
+
+      <section class="managed" aria-labelledby="managed-heading">
+        <div class="section-heading compact"><div><p class="label">Privacy</p><h2 id="managed-heading">Your sensitive domains</h2></div></div>
+        <div id="sensitive-list" class="sensitive-list"></div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

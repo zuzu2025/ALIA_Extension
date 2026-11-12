@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alia Side Panel</title>
+    <link rel="stylesheet" href="sidepanel.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">Adaptive Load Intelligent Agent</p>
+          <h1>Alia</h1>
+        </div>
+        <button id="refresh" class="icon-button" type="button" title="Refresh panel" aria-label="Refresh panel">&#8635;</button>
+      </header>
+
+      <section class="metrics" aria-label="Current tab status">
+        <div class="metric"><strong id="open-count">-</strong><span>Tabs open</span></div>
+        <div class="metric warning"><strong id="dimmed-count">-</strong><span>Blackmasked</span></div>
+        <div class="metric suspended"><strong id="suspended-count">-</strong><span>Suspended</span></div>
+        <div class="metric memory"><strong id="memory-count">-</strong><span>MB freed</span></div>
+      </section>
+
+      <section class="sensitivity" aria-labelledby="current-domain-label">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Current tab</p>
+            <h2 id="current-domain-label">No eligible page</h2>
+          </div>
+          <label class="switch" title="Mark current domain as sensitive">
+            <input id="sensitive-toggle" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p id="sensitive-note">Sensitive domains use a neutral placeholder when suspended.</p>
+      </section>
+
+      <section class="list-section" aria-labelledby="blackmasked-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Live status</p>
+            <h2 id="blackmasked-heading">Blackmasked tabs</h2>
+          </div>
+          <span id="list-count" class="count"></span>
+        </div>
+        <div id="blackmasked-list" class="tab-list" aria-live="polite"></div>
+      </section>
+
+      <section class="sensitive-domains" aria-labelledby="sensitive-domains-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Local list</p>
+            <h2 id="sensitive-domains-heading">Sensitive domains</h2>
+          </div>
+          <span id="sensitive-count" class="count"></span>
+        </div>
+        <div id="sensitive-domains-list" class="domain-list"></div>
+      </section>
+    </main>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>
